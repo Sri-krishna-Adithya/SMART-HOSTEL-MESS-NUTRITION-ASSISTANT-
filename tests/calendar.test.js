@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { daysInMonth } from '../src/calendar.js';
+import { daysInMonth } from '../public/src/calendar.js';
 
 test('daysInMonth returns every date of the month', () => {
   const days = daysInMonth('2026-10');

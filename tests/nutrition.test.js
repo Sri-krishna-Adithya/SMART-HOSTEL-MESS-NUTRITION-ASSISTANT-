@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { calcTargets, toGrams, scaleFood, sumEntries, suggestFoods } from '../src/nutrition.js';
+import { calcTargets, toGrams, scaleFood, sumEntries, suggestFoods } from '../public/src/nutrition.js';
 
 const rice = { name: 'Rice', per100: { kcal: 130, protein: 2.7, carbs: 28, fat: 0.3 }, serving: 200 };
 const egg = { name: 'Egg', per100: { kcal: 155, protein: 13, carbs: 1.1, fat: 11 }, serving: 50, price: 7 };

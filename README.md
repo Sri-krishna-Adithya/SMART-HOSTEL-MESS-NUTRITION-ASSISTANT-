@@ -59,7 +59,7 @@ Deploy on Vercel: import the repo, leave the build command empty, and add enviro
 
 ## Known limitations
 - Nutrition values are approximate averages per 100 g, not lab values, and real mess portions vary.
-- The menu in `data/menu.js` is a sample weekly menu repeated across the month. Replace it with your college's real menu.
+- The menu in `public/data/menu.js` is a sample weekly menu repeated across the month. Replace it with your college's real menu.
 - Data lives in the browser's localStorage, so it is per device and there is no login.
 - The question box depends on the Gemini free tier, which has rate limits. When it fails the user sees a message and the rule-based recommendations still work. There is no per-user rate limiting yet.
 - Answers come from a language model and can be wrong. The prompt tells it to give general guidance only, but it is not medical advice.

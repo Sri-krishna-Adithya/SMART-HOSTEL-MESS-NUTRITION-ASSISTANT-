@@ -1,4 +1,4 @@
-// Small local server: serves the static files and routes /api/ask to the same
+// Small local server: serves the files in public/ and routes /api/ask to the same
 // handler that runs as a serverless function when deployed.
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
@@ -12,7 +12,7 @@ try {
   // no .env file, fall back to real environment variables
 }
 
-const root = fileURLToPath(new URL('.', import.meta.url));
+const publicDir = fileURLToPath(new URL('./public/', import.meta.url));
 const types = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css' };
 const port = process.env.PORT || 3000;
 
@@ -28,10 +28,6 @@ function readBody(req) {
   });
 }
 
-function isPublic(path) {
-  return path === '/index.html' || path === '/styles.css' || path.startsWith('/src/') || path.startsWith('/data/');
-}
-
 createServer(async (req, res) => {
   const { pathname } = new URL(req.url, 'http://localhost');
 
@@ -44,15 +40,14 @@ createServer(async (req, res) => {
     return handler(req, res);
   }
 
-  const path = pathname === '/' ? '/index.html' : pathname;
-  if (!isPublic(path)) {
-    res.statusCode = 404;
-    return res.end('Not found');
+  const file = normalize(join(publicDir, pathname === '/' ? '/index.html' : pathname));
+  if (!file.startsWith(publicDir)) {
+    res.statusCode = 403;
+    return res.end('Forbidden');
   }
   try {
-    const file = await readFile(normalize(join(root, path)));
-    res.setHeader('Content-Type', types[extname(path)] || 'text/plain');
-    res.end(file);
+    res.setHeader('Content-Type', types[extname(file)] || 'text/plain');
+    res.end(await readFile(file));
   } catch {
     res.statusCode = 404;
     res.end('Not found');
