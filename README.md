@@ -1,7 +1,7 @@
 # Smart Hostel Mess Nutrition Assistant
 
-**Live app:** _add your deployed URL here_
-**Demo video:** _add link here_
+Live app:https://smart-hostel-mess-nutrition-assista.vercel.app/
+video: https://drive.google.com/file/d/1podmBcSMd-OZXnytE0vCddqqbVWGql3w/view?usp=sharing
 
 ## The problem
 Hostel students eat what the mess serves. The menu is fixed for the month, so the choice is not *what* to cook but *how much* of each item to eat. Most calorie apps are built around packaged food or restaurant dishes and don't know that day's mess menu, so students either don't track at all or search for every dish by hand.
@@ -22,7 +22,7 @@ Students living in a hostel with a fixed mess menu who want to gain muscle, lose
 ## Run locally
 Needs Node 20.12 or newer. There are no dependencies to install.
 ```bash
-git clone <repo-url>
+git clone https://github.com/Sri-krishna-Adithya/SMART-HOSTEL-MESS-NUTRITION-ASSISTANT-
 cd mess-nutrition-assistant
 cp .env.example .env     # then put your own Gemini API key in .env
 npm start
