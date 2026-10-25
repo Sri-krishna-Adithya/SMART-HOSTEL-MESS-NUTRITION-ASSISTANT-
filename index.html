@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart Hostel Mess Nutrition Assistant</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Smart Hostel Mess Nutrition Assistant</h1>
+    <p>Log what you ate from the fixed mess menu and see how it compares with your daily goals.</p>
+  </header>
+  <main>
+    <section class="card">
+      <h2>1. Your goals</h2>
+      <form id="profile-form">
+        <label>Sex <select name="sex"><option value="male">Male</option><option value="female">Female</option></select></label>
+        <label>Age <input name="age" type="number" required value="20"></label>
+        <label>Height (cm) <input name="heightCm" type="number" required value="170"></label>
+        <label>Weight (kg) <input name="weightKg" type="number" required value="65"></label>
+        <label>Activity <select name="activity"><option value="low">Low</option><option value="moderate" selected>Moderate</option><option value="high">High</option></select></label>
+        <label>Goal <select name="goal"><option value="lose">Lose fat</option><option value="maintain" selected>Maintain</option><option value="gain">Build muscle</option></select></label>
+        <label>Daily add-on budget (Rs) <input name="budget" type="number" min="0" value="30"></label>
+        <button class="primary" type="submit">Save goals</button>
+      </form>
+      <p id="profile-msg" class="muted" role="status"></p>
+    </section>
+
+    <section class="card">
+      <h2>2. Pick food and quantity</h2>
+      <label>Date <input type="date" id="date"></label>
+      <div id="meal-tabs" class="tabs"></div>
+      <ul id="menu-list" class="list"></ul>
+      <p id="menu-msg" class="error" role="alert"></p>
+    </section>
+
+    <section class="card">
+      <h2>3. Today's nutrition</h2>
+      <div id="totals"></div>
+      <h3>Logged food</h3>
+      <ul id="log-list" class="list"></ul>
+    </section>
+
+    <section class="card">
+      <h2>4. Recommendations</h2>
+      <div id="suggestions"></div>
+    </section>
+
+    <section class="card">
+      <h2>5. Ask a question</h2>
+      <form id="ask-form" class="ask">
+        <label for="question">Ask about today's menu, your goal or your numbers</label>
+        <textarea id="question" maxlength="300" rows="3" placeholder="e.g. I'm short on protein, what should I eat for dinner?"></textarea>
+        <button id="ask-button" class="primary" type="submit">Ask</button>
+      </form>
+      <p id="ask-msg" class="muted" role="status"></p>
+      <div id="answer" class="answer"></div>
+    </section>
+
+    <section class="card">
+      <h2>6. Monthly mess menu</h2>
+      <label>Month <input type="month" id="month"></label>
+      <p class="muted">Click a day to log food for it.</p>
+      <div class="table-wrap"><table id="month-table"></table></div>
+    </section>
+
+    <section class="card">
+      <h2>7. Last 7 days</h2>
+      <div id="history"></div>
+    </section>
+  </main>
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
