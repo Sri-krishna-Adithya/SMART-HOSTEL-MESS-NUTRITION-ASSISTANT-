@@ -1,0 +1,11 @@
+{
+  "name": "mess-nutrition-assistant",
+  "version": "1.0.0",
+  "description": "Nutrition tracker for hostel students who eat from a fixed mess menu",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test tests/nutrition.test.js tests/ask.test.js tests/calendar.test.js"
+  },
+  "license": "MIT"
+}
